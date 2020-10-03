@@ -11,11 +11,15 @@ public class Movement : MonoBehaviour
 
     public float horizontalDrag = 2f;
 
+    private Vector3 vc;
     private Vector3 worldCenter
     {
         get
         {
-            return GameController.Instance.WorldCenter;
+            if (vc == null)
+                vc = GameController.Instance.WorldCenter;
+
+            return vc;
         }
     }
 
@@ -58,7 +62,7 @@ public class Movement : MonoBehaviour
 
         //movement = 1 * speed;
         movement = Input.GetAxisRaw("Horizontal") * speed;
-        Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + (Right * movement).normalized, Color.blue);
+        Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + ((Vector2)transform.right * movement).normalized, Color.blue);
 
         // Rotate to top
         var angle = Mathf.Atan2(Up.y, Up.x) * Mathf.Rad2Deg - 90f;

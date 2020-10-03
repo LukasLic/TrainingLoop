@@ -6,5 +6,8 @@ public class GameController : GenericSingleton<GameController>
 {
     public Vector3 WorldCenter = Vector3.zero;
 
+    public void GameOver()
+    {
 
+    }
 }
