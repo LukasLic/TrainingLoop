@@ -1,10 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public int SunflowerSeeds = 0;
+    private int sls;
+    public int SunflowerSeeds
+    {
+        get => sls;
+        set
+        {
+            sls = value;
+            SunflowerSeedsText.text = sls.ToString();
+        }
+    }
 
     public float damageKnockback;
     public float invulTime;
@@ -29,34 +39,32 @@ public class PlayerController : MonoBehaviour
                 Debug.LogWarning("gained more than max lives!");
             }
 
-            // TODO: Update UI
-
-            // TODO: Throwback
-            // TODO Invincibility frames
+            for (int i = 0; i < LifeImages.Length; i++)
+            {
+                if (i < lives)
+                    LifeImages[i].enabled = true;
+                else
+                    LifeImages[i].enabled = false;
+            }
 
         }
     }
 
     public int MaxLives = 3;
 
+    public Text SunflowerSeedsText;
+    public Image[] LifeImages;
+
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
-    //    switch (collision.gameObject.tag)
-    //    {
-    //        case "SunflowerSeed":
-    //            PickupSunflowerSeed(collision.gameObject);
-    //            break;
-    //        case "Rocket":
-    //            var contacts = collision.;
-    //            TakeDamage(collision.gameObject, [0]);
-    //            Destroy(collision.gameObject);
-    //            break;
-    //        case "DamageSource":
-    //            TakeDamage(collision.gameObject);
-    //            break;
-    //        default:
-    //            break;
-    //    }
+    //    //switch (collision.gameObject.tag)
+    //    //{
+    //    //    case "SunflowerSeed":
+    //    //        PickupSunflowerSeed(collision.gameObject);
+    //    //        break;
+    //    //    default:
+    //    //        break;
+    //    //}
     //}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -64,7 +72,6 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "SunflowerSeed":
-                PickupSunflowerSeed(collision.gameObject);
                 break;
             case "Rocket":
                 TakeDamage(collision.gameObject, collision.GetContact(0).point);
@@ -82,13 +89,23 @@ public class PlayerController : MonoBehaviour
     {
         Lives -= GetValue(damageSource);
         Movement.JumpInDirection(transform.position - point, damageKnockback);
-
+        StartCoroutine(RedFlash());
     }
 
-    private void PickupSunflowerSeed(GameObject seed)
+    public void PickupSunflowerSeed(GameObject seed)
     {
         SunflowerSeeds += GetValue(seed);
+        seed.SetActive(false);
         Destroy(seed);
+    }
+    public void PickupSunflowerSeed(int amount = 1)
+    {
+        SunflowerSeeds += amount;
+    }
+
+    private void Awake()
+    {
+        UpdateUi();
     }
 
     private void Die()
@@ -109,6 +126,28 @@ public class PlayerController : MonoBehaviour
         return component.Value;
     }
 
+    IEnumerator RedFlash()
+    {
+        BodyRenderer.material.color = Color.red;
+        var steps = 0;
+
+        for (float ft = 0f; ft <= 1f; ft += 0.05f * steps)
+        {
+            Color c = BodyRenderer.material.color;
+            c.g += Mathf.Min(ft * steps, 1f);
+            c.b += Mathf.Min(ft * steps, 1f);
+            c.g = ft;
+            c.b = ft;
+            BodyRenderer.material.color = c;
+
+            steps++;
+
+            yield return new WaitForSeconds(.05f);
+        }
+
+        BodyRenderer.material.color = Color.white;
+    }
+
     private Movement m;
     public Movement Movement
     {
@@ -119,5 +158,13 @@ public class PlayerController : MonoBehaviour
 
             return m;
         }
+    }
+
+    public SpriteRenderer BodyRenderer;
+
+    public void UpdateUi()
+    {
+        Lives = Lives;
+        SunflowerSeeds = SunflowerSeeds;
     }
 }
