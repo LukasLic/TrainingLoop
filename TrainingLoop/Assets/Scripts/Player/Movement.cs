@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public float maxSpeed = 2f;
     public float JumpStregth = 4f;
 
+    public Animator animator;
 
     private float movement;
     private bool isFlipped = false;
@@ -110,6 +111,12 @@ public class Movement : MonoBehaviour
             transform.SetParent(Rotator);
         else
             transform.SetParent(null);
+
+        // Control the animator.
+        if (movement != 0f)
+            animator.speed = 1f;
+        else
+            animator.speed = 0f;
 
         Debug.DrawLine((Vector2)transform.position, (Vector2)worldCenter);
         Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + ((Vector2)transform.right * movement).normalized, Color.blue);
