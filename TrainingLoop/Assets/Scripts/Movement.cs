@@ -11,7 +11,13 @@ public class Movement : MonoBehaviour
 
     public float horizontalDrag = 2f;
 
-    public Transform worldCenter;
+    private Vector3 worldCenter
+    {
+        get
+        {
+            return GameController.Instance.WorldCenter;
+        }
+    }
 
     public Transform Rotator;
 
@@ -19,7 +25,7 @@ public class Movement : MonoBehaviour
     {
         get
         {
-            return (worldCenter.position - transform.position).normalized;
+            return (worldCenter - transform.position).normalized;
         }
     }
     public Vector2 Right
@@ -44,7 +50,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawLine((Vector2)transform.position, (Vector2)worldCenter.position);
+        Debug.DrawLine((Vector2)transform.position, (Vector2)worldCenter);
         //Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + (Right * maxSpeed), Color.green);
 
         //var movement = Right * speed * Time.deltaTime;
@@ -79,8 +85,8 @@ public class Movement : MonoBehaviour
 
         //Vector2 force = new Vector2(movement * lerp * speed * Time.fixedDeltaTime, 0f);
         Vector2 force = Right * movement * lerp * speed * Time.fixedDeltaTime;
-        Vector2 drag = new Vector2(-Rigidbody2D.velocity.x * horizontalDrag * Time.fixedDeltaTime, 0f);
-        //Vector2 drag = -Rigidbody2D.velocity * horizontalDrag * Time.fixedDeltaTime;
+        //Vector2 drag = new Vector2(-Rigidbody2D.velocity.x * horizontalDrag * Time.fixedDeltaTime, 0f);
+        Vector2 drag = -Rigidbody2D.velocity * horizontalDrag * Time.fixedDeltaTime;
 
         Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + force, Color.green);
         Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + drag, Color.red);
