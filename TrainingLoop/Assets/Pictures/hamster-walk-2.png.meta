@@ -1,0 +1,1096 @@
+fileFormatVersion: 2
+guid: b82fdd040d93d0b4c886b1a11d430c59
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hamster-walk-2_0
+    21300002: hamster-walk-2_1
+    21300004: hamster-walk-2_2
+    21300006: hamster-walk-2_3
+    21300008: hamster-walk-2_4
+    21300010: hamster-walk-2_5
+    21300012: hamster-walk-2_6
+    21300014: hamster-walk-2_7
+    21300016: hamster-walk-2_8
+    21300018: hamster-walk-2_9
+    21300020: hamster-walk-2_10
+    21300022: hamster-walk-2_11
+    21300024: hamster-walk-2_12
+    21300026: hamster-walk-2_13
+    21300028: hamster-walk-2_14
+    21300030: hamster-walk-2_15
+    21300032: hamster-walk-2_16
+    21300034: hamster-walk-2_17
+    21300036: hamster-walk-2_18
+    21300038: hamster-walk-2_19
+    21300040: hamster-walk-2_20
+    21300042: hamster-walk-2_21
+    21300044: hamster-walk-2_22
+    21300046: hamster-walk-2_23
+    21300048: hamster-walk-2_24
+    21300050: hamster-walk-2_25
+    21300052: hamster-walk-2_26
+    21300054: hamster-walk-2_27
+    21300056: hamster-walk-2_28
+    21300058: hamster-walk-2_29
+    21300060: hamster-walk-2_30
+    21300062: hamster-walk-2_31
+    21300064: hamster-walk-2_32
+    21300066: hamster-walk-2_33
+    21300068: hamster-walk-2_34
+    21300070: hamster-walk-2_35
+    21300072: hamster-walk-2_36
+    21300074: hamster-walk-2_37
+    21300076: hamster-walk-2_38
+    21300078: hamster-walk-2_39
+    21300080: hamster-walk-2_40
+    21300082: hamster-walk-2_41
+    21300084: hamster-walk-2_42
+    21300086: hamster-walk-2_43
+    21300088: hamster-walk-2_44
+    21300090: hamster-walk-2_45
+    21300092: hamster-walk-2_46
+    21300094: hamster-walk-2_47
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hamster-walk-2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 815
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16eb704eda3f2564382299efe21731ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_1
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 815
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c47c1778dea524d9886996db2ab0dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_2
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 815
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31dcdf3aeb691ed4786a0bbf6fa2d98a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_3
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 815
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83daac754a9a9b419660e28d7729e66
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_4
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 815
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba768a2f38ccf1f43970f6ba2f174448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_5
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 815
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8deab22157371ae42bed362a218f28e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_6
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 815
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39922eb39c26b2e40a2f89bd74680ac7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_7
+      rect:
+        serializedVersion: 2
+        x: 2303
+        y: 815
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3829c710e843fdd4cbd87860e2109da3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 652
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02891186eb6b1c74eb8c328779c5ac65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_9
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 652
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff93347e6b3dd954a800f3415f3b3454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_10
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 652
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2370a7cb9b9204eb77a0d441aa6eae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_11
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 652
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3751143e0659f343ba549e772c75dc6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_12
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 652
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6640161dfe1f28143a986f8aeb3c100a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_13
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 652
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affd569e5db3df14c8c89b1117d302a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_14
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 652
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7fd261ce8b774478f0bf1de7b60f0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_15
+      rect:
+        serializedVersion: 2
+        x: 2303
+        y: 652
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187843021c89a1542a2bb9eafffc039d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 489
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866b401b393b6e74e9b3060ba5e5b58a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_17
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 489
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921c7486df6c2d34b9fc76a61c593530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_18
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 489
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728d9ecf4f9d8ef478d86ecb4773b078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_19
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 489
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf6c633c6ebd4d4189e61f5894ab772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_20
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 489
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 214a32b05d4bbb94bb547e2ecadfb32c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_21
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 489
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68843fcc09d780c4b8358d6e4c95ef7e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_22
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 489
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ffc827504d2c440abe57c2c0fc671c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_23
+      rect:
+        serializedVersion: 2
+        x: 2303
+        y: 489
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0457595147d40644936f0c1d15956ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 326
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d67d9508532ecc94597b8ef82071d804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_25
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 326
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0036e1f67ee954085af0cadb9e076c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_26
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 326
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3079b86d58d23e145ac395fd403acfc8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_27
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 326
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c943dde3273df488bf9de6ddbdc554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_28
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 326
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a9bff67f0e5b846a545f0083efb14c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_29
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 326
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ba9eefb35ad374dac80f2f74816b7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_30
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 326
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e247f6f0ffbb714bb2162acbefcc24e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_31
+      rect:
+        serializedVersion: 2
+        x: 2303
+        y: 326
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b04fae506c8fff4cb2ab42bb51d4aec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 163
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ad465fe7f38da4791f99e250184ca0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_33
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 163
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c168689fe868a61408d01aaca9192ff1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_34
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 163
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be86800cff728f04eb81683cc2537a80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_35
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 163
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea120e89e7edfe4180b532111b98d8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_36
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 163
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa51c0e2b91bfa84083a74eff7485813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_37
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 163
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fed88ff05d21aa44ad84db2566c7d98
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_38
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 163
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e78a4f1d2b50e40bc20a43fd486bf5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_39
+      rect:
+        serializedVersion: 2
+        x: 2303
+        y: 163
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3edfd12c03feb46a86430dba5f18c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6e11759790b574192a4f8126250c52
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_41
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7768608b815ab8041bd6ae7bc795ff5a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_42
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 0
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127cbe226fb82b74c93567be684719cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_43
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 0
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e841f5207dded4944bd90f1b332486ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_44
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 0
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d792b79a4081dfe4c8358706972f4a2b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_45
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 0
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c91ee1f6ab1d4c4f828d47904b2c72a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_46
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 0
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104b3b8f518411f438116e093cd50179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hamster-walk-2_47
+      rect:
+        serializedVersion: 2
+        x: 2303
+        y: 0
+        width: 329
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1deb89d1e30edc49b8280a4c5556cd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 654a1ceba1e1aaa479a1bdab3bb3820c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
