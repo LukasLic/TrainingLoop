@@ -89,7 +89,9 @@ public class PlayerController : MonoBehaviour
     {
         Lives -= GetValue(damageSource);
         Movement.JumpInDirection(transform.position - point, damageKnockback);
-        StartCoroutine(RedFlash());
+
+        if (gameObject.activeSelf)
+            StartCoroutine(RedFlash());
     }
 
     public void PickupSunflowerSeed(GameObject seed)
@@ -103,10 +105,10 @@ public class PlayerController : MonoBehaviour
         SunflowerSeeds += amount;
     }
 
-    private void Awake()
-    {
-        UpdateUi();
-    }
+    //private void Awake()
+    //{
+    //    UpdateUi();
+    //}
 
     private void Die()
     {
@@ -162,9 +164,9 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer BodyRenderer;
 
-    public void UpdateUi()
-    {
-        Lives = Lives;
-        SunflowerSeeds = SunflowerSeeds;
-    }
+    //public void UpdateUi()
+    //{
+    //    Lives = Lives;
+    //    SunflowerSeeds = SunflowerSeeds;
+    //}
 }
