@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public int SunflowerSeeds = 0;
 
+    public float damageKnockback;
+    public float invulTime;
+
     [SerializeField]
     private int lives;
     public int Lives
@@ -36,7 +39,27 @@ public class PlayerController : MonoBehaviour
 
     public int MaxLives = 3;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    switch (collision.gameObject.tag)
+    //    {
+    //        case "SunflowerSeed":
+    //            PickupSunflowerSeed(collision.gameObject);
+    //            break;
+    //        case "Rocket":
+    //            var contacts = collision.;
+    //            TakeDamage(collision.gameObject, [0]);
+    //            Destroy(collision.gameObject);
+    //            break;
+    //        case "DamageSource":
+    //            TakeDamage(collision.gameObject);
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         switch (collision.gameObject.tag)
         {
@@ -44,20 +67,22 @@ public class PlayerController : MonoBehaviour
                 PickupSunflowerSeed(collision.gameObject);
                 break;
             case "Rocket":
-                TakeDamage(collision.gameObject);
+                TakeDamage(collision.gameObject, collision.GetContact(0).point);
                 Destroy(collision.gameObject);
                 break;
             case "DamageSource":
-                TakeDamage(collision.gameObject);
+                TakeDamage(collision.gameObject, collision.GetContact(0).point);
                 break;
             default:
                 break;
         }
     }
 
-    public void TakeDamage(GameObject damageSource)
+    public void TakeDamage(GameObject damageSource, Vector3 point)
     {
         Lives -= GetValue(damageSource);
+        Movement.JumpInDirection(transform.position - point, damageKnockback);
+
     }
 
     private void PickupSunflowerSeed(GameObject seed)
@@ -82,5 +107,17 @@ public class PlayerController : MonoBehaviour
             
 
         return component.Value;
+    }
+
+    private Movement m;
+    public Movement Movement
+    {
+        get
+        {
+            if (m == null)
+                m = GetComponent<Movement>();
+
+            return m;
+        }
     }
 }

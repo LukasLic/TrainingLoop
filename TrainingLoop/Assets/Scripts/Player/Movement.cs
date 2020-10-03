@@ -164,15 +164,7 @@ public class Movement : MonoBehaviour
 
         if (jump)
         {
-            //Vector2 vel = rb.velocity;
-            //vel.y = JumpStregth;
-
-            Rigidbody2D.velocity = transform.up * JumpStregth;
-            jump = false;
-            isGrounded = false;
-            canJump = false;
-            //animator.SetBool("IsGrounded", isGrounded);
-            //animator.SetTrigger("Jump");
+            JumpInDirection(transform.up, JumpStregth);
         }
     }
 
@@ -237,5 +229,13 @@ public class Movement : MonoBehaviour
         offsetPosition += (Vector2)transform.up * relativeOffset.y;
 
         return offsetPosition;
+    }
+
+    public void JumpInDirection(Vector2 direction, float stregth)
+    {
+        Rigidbody2D.velocity = direction.normalized * stregth;
+        jump = false;
+        isGrounded = false;
+        canJump = false;
     }
 }
