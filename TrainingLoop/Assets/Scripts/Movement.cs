@@ -54,6 +54,12 @@ public class Movement : MonoBehaviour
         movement = Input.GetAxisRaw("Horizontal") * speed;
         Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + (Right * movement).normalized, Color.blue);
 
+        // Rotate to top
+        var angle = Mathf.Atan2(Up.y, Up.x) * Mathf.Rad2Deg - 90f;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+
+
         if (movement == 0/* && Rigidbody2D.velocity.magnitude <= 0.1f*/)
             transform.SetParent(Rotator);
         else
