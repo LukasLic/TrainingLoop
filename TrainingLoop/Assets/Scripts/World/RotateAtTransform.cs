@@ -11,6 +11,14 @@ public class RotateAtTransform : MonoBehaviour
     /// </summary>
     public bool Rotate;
 
+    /// <summary>
+    /// Works as a button from editor
+    /// </summary>
+    public bool Create;
+    public int NumberOfColliders;
+    public float Radius;
+    public Transform PrefabObject;
+
     public Transform Target;
     public List<Transform> Objects;
 
@@ -22,14 +30,20 @@ public class RotateAtTransform : MonoBehaviour
             if (Rotate)
             {
                 Rotate = false;
-                DoRotate();
+                DoRotate(Objects);
+            }
+
+            if(Create)
+            {
+                Create = false;
+                DoCreate();
             }
         }
     }
 
-    public void DoRotate()
+    public void DoRotate(List<Transform> objects)
     {
-        foreach (var o in Objects)
+        foreach (var o in objects)
         {
             //o.LookAt(Target);
 
@@ -43,5 +57,31 @@ public class RotateAtTransform : MonoBehaviour
             //                            Target.position.z);
             //o.transform.LookAt(targetPostition);
         }
+    }
+
+    public void DoCreate()
+    {
+        var objects = new List<Transform>();
+        var angle = 360f / (float)NumberOfColliders;
+
+        for (int i = 0; i < NumberOfColliders; i++)
+        {
+            var x1 = Radius * Mathf.Cos(angle * i);
+            var y1 = Radius * Mathf.Sin(angle * i);
+
+            var x2 = Radius * Mathf.Sin(angle * i);
+            var y2 = Radius * -Mathf.Cos(angle * i);
+
+            var pos1 = new Vector3(x1, y1, Target.position.z);
+            var pos2 = new Vector3(x2, y2, Target.position.z);
+
+            var tr1 = Instantiate(PrefabObject, pos1, Quaternion.identity);
+            var tr2 = Instantiate(PrefabObject, pos2, Quaternion.identity);
+            
+            objects.Add(tr1);
+            objects.Add(tr2);
+        }
+
+        DoRotate(objects);
     }
 }
