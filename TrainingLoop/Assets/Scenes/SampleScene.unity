@@ -3042,9 +3042,7 @@ GameObject:
   - component: {fileID: 1607915635}
   - component: {fileID: 1607915636}
   - component: {fileID: 1607915644}
-  - component: {fileID: 1607915640}
   - component: {fileID: 1607915638}
-  - component: {fileID: 1607915639}
   - component: {fileID: 1607915642}
   - component: {fileID: 1607915641}
   - component: {fileID: 1607915637}
@@ -3070,7 +3068,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.11, y: 0.17}
+  m_Offset: {x: 0.9, y: 0.23}
   serializedVersion: 2
   m_Radius: 0.41
 --- !u!4 &1607915635
@@ -3081,7 +3079,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607915633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -16.38, z: 0}
+  m_LocalPosition: {x: 0, y: -16.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1641102503}
@@ -3111,7 +3109,8 @@ MonoBehaviour:
     m_Bits: 768
   frontDetection: {fileID: 1607915642}
   backDetection: {fileID: 1607915641}
-  horizontalDrag: 2
+  headDetection: {fileID: 1607915634}
+  horizontalDrag: 14
   Rotator: {fileID: 2010278237}
 --- !u!58 &1607915637
 CircleCollider2D:
@@ -3150,32 +3149,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!247 &1607915639
-ConstantForce2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607915633}
-  m_Enabled: 0
-  m_Force: {x: 0, y: 0}
-  m_RelativeForce: {x: 0, y: 0}
-  m_Torque: 0
---- !u!114 &1607915640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607915633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f11b0c7bbdeea4a41843e7c467dbde41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _constantForce: {fileID: 1607915639}
-  WorldCenter: {fileID: 1888057801}
-  gravityStrength: 10
 --- !u!58 &1607915641
 CircleCollider2D:
   m_ObjectHideFlags: 0

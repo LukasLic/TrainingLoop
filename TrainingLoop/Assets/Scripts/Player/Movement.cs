@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     public LayerMask platformMask;
     public CircleCollider2D frontDetection;
     public CircleCollider2D backDetection;
+    public CircleCollider2D headDetection;
 
     public float horizontalDrag = 2f;
 
@@ -66,6 +67,8 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        var wasGrounded = isGrounded; // FIX
+
         DetectGround();
         DetectGroundOrPlatform();
 
@@ -75,11 +78,26 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && canJump)
             jump = true;
 
+        // Check for a wall
+        if (movement != 0f)
+        {
+            Collider2D headCollider = Physics2D.OverlapCircle(
+                LocalOffsetPosition(headDetection.offset),
+                headDetection.radius + 0.1f,
+                platformMask);
+
+            if (headCollider != null)
+                movement = 0f;
+        }
+
         if (isGrounded)
         {
             // Rotate to top
             var angle = Mathf.Atan2(Up.y, Up.x) * Mathf.Rad2Deg - 90f;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            if (!wasGrounded)
+                transform.position -= transform.up * 0.1f; // FIX
         }
         else
         {
@@ -88,7 +106,7 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
-        if (movement == 0 && isGrounded)
+        if (movement == 0 && canJump)
             transform.SetParent(Rotator);
         else
             transform.SetParent(null);
@@ -113,16 +131,18 @@ public class Movement : MonoBehaviour
         if (isGrounded)
         {
             force = Right * movement * lerp * speed * Time.fixedDeltaTime;
-            drag = -Rigidbody2D.velocity * horizontalDrag * Time.fixedDeltaTime;
+            //drag = -Rigidbody2D.velocity * horizontalDrag * Time.fixedDeltaTime;
+            drag = new Vector2(-Rigidbody2D.velocity.x * horizontalDrag * Time.fixedDeltaTime, 0f);
         }
         else
         {
             force = new Vector2(movement * lerp * speed * Time.fixedDeltaTime, 0f);
-            drag = new Vector2(-rb.velocity.x * horizontalDrag * Time.fixedDeltaTime, 0f);
+            drag = new Vector2(-Rigidbody2D.velocity.x * horizontalDrag * Time.fixedDeltaTime, 0f);
         }
 
-        Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + force, Color.green);
-        Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + drag, Color.red);
+        //Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + force, Color.green);
+        //Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + drag, Color.red);
+        Debug.DrawLine((Vector2)transform.position, (Vector2)transform.position + Rigidbody2D.velocity, Color.yellow);
 
         Rigidbody2D.AddForce(force, ForceMode2D.Force);
         Rigidbody2D.AddForce(drag, ForceMode2D.Force);
@@ -147,7 +167,7 @@ public class Movement : MonoBehaviour
             //Vector2 vel = rb.velocity;
             //vel.y = JumpStregth;
 
-            rb.velocity = transform.up * JumpStregth;
+            Rigidbody2D.velocity = transform.up * JumpStregth;
             jump = false;
             isGrounded = false;
             canJump = false;
@@ -158,16 +178,20 @@ public class Movement : MonoBehaviour
 
     private void DetectGround()
     {
-        Collider2D colliderFront = Physics2D.OverlapCircle(rb.position + frontDetection.offset, frontDetection.radius + 0.5f, groundMask);
-        Collider2D colliderBack = Physics2D.OverlapCircle(rb.position + backDetection.offset, backDetection.radius + 0.5f, groundMask);
+        var radius = 0.05f;
+        if (isGrounded)
+            radius = 0.2f;
+
+        Collider2D colliderFront = Physics2D.OverlapCircle(LocalOffsetPosition(frontDetection.offset), frontDetection.radius + radius, groundMask);
+        Collider2D colliderBack = Physics2D.OverlapCircle(LocalOffsetPosition(backDetection.offset), backDetection.radius + radius, groundMask);
 
         if (colliderFront != null || colliderBack != null)
         {
-            if (rb.velocity.y < 0f)
+            if (Rigidbody2D.velocity.y < 0f)
             {
                 isGrounded = true;
             }
-                
+
         }
         else
             isGrounded = false;
@@ -175,23 +199,43 @@ public class Movement : MonoBehaviour
 
     private void DetectGroundOrPlatform()
     {
-        Collider2D colliderFront = Physics2D.OverlapCircle(rb.position + frontDetection.offset, frontDetection.radius + 0.5f, platformMask);
-        Collider2D colliderBack = Physics2D.OverlapCircle(rb.position + backDetection.offset, backDetection.radius + 0.5f, platformMask);
+        var radius = 0.05f;
+        if (canJump)
+            radius = 0.2f;
+
+        Collider2D colliderFront = Physics2D.OverlapCircle(LocalOffsetPosition(frontDetection.offset), frontDetection.radius + radius, platformMask);
+        Collider2D colliderBack = Physics2D.OverlapCircle(LocalOffsetPosition(backDetection.offset), backDetection.radius + radius, platformMask);
 
         if (colliderFront != null || colliderBack != null)
         {
-            if (rb.velocity.y < 0f)
-            {
+            if (Rigidbody2D.velocity.y < 0f)
                 canJump = true;
-            }
-
         }
         else
             canJump = false;
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.DrawWireSphere((Vector2)rb.position, 5f);
-    //}
+    private void OnDrawGizmosSelected()
+    {
+        var radius1 = 0.1f;
+
+        var radius2 = 0.05f;
+        if (canJump)
+            radius2 = 0.2f;
+
+        Gizmos.DrawWireSphere(LocalOffsetPosition(headDetection.offset), headDetection.radius + radius1);
+        Gizmos.DrawWireSphere(LocalOffsetPosition(frontDetection.offset), frontDetection.radius + radius2);
+        Gizmos.DrawWireSphere(LocalOffsetPosition(backDetection.offset), backDetection.radius + radius2);
+    }
+
+    private Vector2 LocalOffsetPosition(Vector2 relativeOffset)
+    {
+        var flipped = isFlipped ? -1f : 1f;
+
+        var offsetPosition = Rigidbody2D.position;
+        offsetPosition += (Vector2)transform.right * relativeOffset.x * flipped;
+        offsetPosition += (Vector2)transform.up * relativeOffset.y;
+
+        return offsetPosition;
+    }
 }
