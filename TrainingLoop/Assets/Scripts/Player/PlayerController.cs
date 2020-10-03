@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
         get => lives;
         set
         {
-            lives += value;
+            lives = value;
 
             if (lives <= 0)
             {
@@ -25,14 +25,16 @@ public class PlayerController : MonoBehaviour
                 lives = MaxLives;
                 Debug.LogWarning("gained more than max lives!");
             }
-                
+
             // TODO: Update UI
+
+            // TODO: Throwback
+            // TODO Invincibility frames
 
         }
     }
 
-    [SerializeField]
-    private int MaxLives = 3;
+    public int MaxLives = 3;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

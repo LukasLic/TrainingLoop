@@ -6,15 +6,15 @@ using UnityEngine;
 public class WorldGravity : MonoBehaviour
 {
     [SerializeField]
-    private ConstantForce2D constantForce;
+    private ConstantForce2D _constantForce;
     public  ConstantForce2D ConstantForce
     {
         get
         {
-            if (constantForce == null)
-                constantForce = GetComponent<ConstantForce2D>();
+            if (_constantForce == null)
+                _constantForce = GetComponent<ConstantForce2D>();
 
-            return constantForce;
+            return _constantForce;
         }
     }
 
@@ -32,6 +32,6 @@ public class WorldGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        constantForce.force = -Up * gravityStrength;
+        ConstantForce.force = -Up * gravityStrength;
     }
 }
