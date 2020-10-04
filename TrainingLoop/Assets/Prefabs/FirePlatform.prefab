@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6665296005546007572}
   - component: {fileID: 3433974500165578378}
   - component: {fileID: 6665296005546007573}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePlatform
   m_TagString: DamageSource
   m_Icon: {fileID: 0}

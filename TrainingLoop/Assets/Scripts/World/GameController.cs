@@ -108,6 +108,7 @@ public class GameController : GenericSingleton<GameController>
         // Prepare player.
         Player.enabled = true;
         Player.Lives = Player.MaxLives;
+        Player.GetComponent<Movement>().ExtraJumps = 0;
         Player.SunflowerSeeds = 0;
         Player.BodyRenderer.color = Color.white;
         Player.transform.position = startingPosition;
@@ -243,5 +244,28 @@ public class GameController : GenericSingleton<GameController>
         rb.velocity = (new Vector2(8f * r_v, 14f));
 
         seedsSpawned++;
+    }
+
+    public void RequestBuyJump()
+    {
+        var mov = Player.GetComponent<Movement>();
+
+        if(mov.ExtraJumps <= 0)
+        {
+            Player.SunflowerSeeds -= Player.EJumpCost;
+            mov.ExtraJumps++;
+            mov.currrentExtraJumps = mov.ExtraJumps;
+        }
+    }
+
+    public void RequestBuyLife()
+    {
+        var mov = Player.GetComponent<Movement>();
+
+        if (Player.Lives < Player.MaxLives)
+        {
+            Player.SunflowerSeeds -= Player.LivesCost;
+            Player.Lives++;
+        }
     }
 }

@@ -1,9 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
+    public int ExtraJumps;
+    private int eJmp;
+    public int currrentExtraJumps
+    {
+        get => eJmp;
+        set
+        {
+            if (value > 0)
+                JumpArrow.enabled = true;
+            else
+                JumpArrow.enabled = false;
+
+            eJmp = value;
+        }
+    }
+
+    public Image JumpArrow;
+
     public float speed = 1f;
     public float maxSpeed = 2f;
     public float JumpStregth = 4f;
@@ -66,8 +85,16 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        currrentExtraJumps = ExtraJumps;
+    }
+
     private void Update()
     {
+        if (canJump)
+            currrentExtraJumps = ExtraJumps;
+
         var wasGrounded = isGrounded; // FIX
 
         DetectGround();
@@ -76,8 +103,12 @@ public class Movement : MonoBehaviour
         // Movement input.
         movement = Input.GetAxisRaw("Horizontal") * speed;
         // Check for jump input.
-        if (Input.GetButtonDown("Jump") && canJump)
+        if (Input.GetButtonDown("Jump") && (canJump || currrentExtraJumps > 0))
+        {
+            if (!canJump)
+                currrentExtraJumps--;
             jump = true;
+        }
 
         // Check for a wall
         if (movement != 0f)

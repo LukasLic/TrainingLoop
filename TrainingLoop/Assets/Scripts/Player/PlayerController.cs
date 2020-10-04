@@ -14,6 +14,10 @@ public struct ButtonPrice
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Costs")]
+    public int EJumpCost = 20;
+    public int LivesCost = 12;
+
     private int sls;
     public int SunflowerSeeds
     {

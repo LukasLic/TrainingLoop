@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8422051406349569581}
   - component: {fileID: 58738786946112678}
   - component: {fileID: 2422062505762423655}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SunflowerSeed
   m_TagString: SunflowerSeed
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
