@@ -38,10 +38,15 @@ public class GameController : GenericSingleton<GameController>
     private bool Paused = false;
     private int CurrentRound = 0;
     private float RoundTimer = 0f;
+    private float GoldenSeedTimer = 0f;
     private int seedsSpawned;
+    private int goldenSeedSpawned;
+    private GameObject currentGoldenSeed;
 
     [Header("Prefabs")]
     public GameObject SeedPrefab;
+    public float GoldenSeedSpawnTime = 10f;
+    public GameObject GoldenSeedPrefab;
 
     public void GameOver()
     {
@@ -71,6 +76,17 @@ public class GameController : GenericSingleton<GameController>
             return;
 
         RoundTimer += Time.deltaTime;
+
+        if (currentGoldenSeed == null)
+            GoldenSeedTimer += Time.deltaTime;
+        else
+            GoldenSeedTimer = 0f;
+
+        if (GoldenSeedTimer >= GoldenSeedSpawnTime * (goldenSeedSpawned + 1))
+        {
+            currentGoldenSeed = Instantiate(GoldenSeedPrefab, Vector3.zero, Quaternion.identity, WorldRoot);
+            goldenSeedSpawned++;
+        }
 
         if (RoundTimer >= Rounds[CurrentRound].SeedTime * seedsSpawned)
             SpawnSeed();
@@ -208,9 +224,11 @@ public class GameController : GenericSingleton<GameController>
         // Unpause
         Paused = false;
         RoundTimer = 0f;
+        GoldenSeedTimer = 0f;
 
         // Other
         seedsSpawned = 0;
+        goldenSeedSpawned = 0;
 
         // Activate objects
         foreach (var obj in Rounds[CurrentRound].ActiveObjects)

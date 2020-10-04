@@ -8893,6 +8893,9 @@ MonoBehaviour:
     - {fileID: 63253286}
   SeedPrefab: {fileID: 8422051406349569583, guid: 595216dccd9cd4b45a7e9463146f2013,
     type: 3}
+  GoldenSeedSpawnTime: 10
+  GoldenSeedPrefab: {fileID: 2794936875165539159, guid: 66fdf9c3ef4665c48863490532ee0200,
+    type: 3}
 --- !u!114 &1888057803
 MonoBehaviour:
   m_ObjectHideFlags: 0
