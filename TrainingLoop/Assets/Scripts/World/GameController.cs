@@ -15,6 +15,8 @@ public struct Round
 
 public class GameController : GenericSingleton<GameController>
 {
+    private MusicController MusicController;
+
     public Vector3 WorldCenter = Vector3.zero;
     public PlayerController Player;
     public Transform Wheel;
@@ -45,6 +47,8 @@ public class GameController : GenericSingleton<GameController>
     {
         StopGame();
 
+        MusicController.PlayTheme(MusicController.DefeatTheme, false);
+
         GameOverScreen.SetActive(true);
         StartCoroutine(FadeIn(GameOverScreen.GetComponent<RawImage>().material));
     }
@@ -53,8 +57,10 @@ public class GameController : GenericSingleton<GameController>
     {
         StopGame();
 
+        MusicController.PlayTheme(MusicController.VictoryTheme, false);
+
         VictoryScreen.SetActive(true);
-        StartCoroutine(FadeIn(VictoryScreen.GetComponent<RawImage>().material));
+        StartCoroutine(FadeIn(VictoryScreen.GetComponent<Image>().material));
     }
 
     
@@ -79,6 +85,8 @@ public class GameController : GenericSingleton<GameController>
     {
         base.Awake();
 
+        MusicController = GetComponent<MusicController>();
+
         if (Player == null)
             Player = FindObjectOfType<PlayerController>();
 
@@ -97,6 +105,8 @@ public class GameController : GenericSingleton<GameController>
 
     public void StartNewGame()
     {
+        MusicController.PlayTheme(MusicController.MainTheme, true);
+
         // Clean world.
         for (int i = 0; i < ObjectsRoots.Length; i++)
             for (int j = 0; j < ObjectsRoots[i].childCount; j++)
@@ -114,6 +124,8 @@ public class GameController : GenericSingleton<GameController>
         Player.transform.position = startingPosition;
         Player.transform.rotation = Quaternion.identity;
         Player.gameObject.SetActive(true);
+
+        Player.GetComponentInChildren<SpriteRenderer>().material.color = Color.white;
 
         // Clean victory/gameover UI;
         GameOverScreen.SetActive(false);
@@ -161,12 +173,14 @@ public class GameController : GenericSingleton<GameController>
         // Pause game
         Paused = true;
 
+        MusicController.PlayTheme(MusicController.ShopTheme, true);
         ShopScreen.SetActive(true);
     }
 
     private void StartRound()
     {
         ShopScreen.SetActive(false);
+        MusicController.PlayTheme(MusicController.MainTheme, true);
 
         // Reset camera.
         SmoothCamera.enabled = true;
