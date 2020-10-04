@@ -97,6 +97,12 @@ public class GameController : GenericSingleton<GameController>
 
     private void StopGame()
     {
+        foreach (var obj in Rounds[CurrentRound].ActiveObjects)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
         Player.gameObject.SetActive(false);
         Player.enabled = false;
         SmoothCamera.enabled = false;
@@ -152,13 +158,16 @@ public class GameController : GenericSingleton<GameController>
         Player.enabled = false;
         SmoothCamera.enabled = false;
 
+        var m = Player.GetComponent<Movement>();
+        m.currrentExtraJumps = m.ExtraJumps;
+
         // Deactivate objects
         foreach (var obj in Rounds[CurrentRound].ActiveObjects)
         {
-            if(obj != null)
+            if (obj != null)
                 obj.SetActive(false);
         }
-            
+
 
         // Increase round if possible.
         CurrentRound++;

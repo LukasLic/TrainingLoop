@@ -119,10 +119,11 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(GameObject damageSource, Vector3 point)
     {
-        Lives -= GetValue(damageSource);
+        var dmg = GetValue(damageSource);
+        Lives -= dmg;
         Movement.JumpInDirection(transform.position - point, damageKnockback);
 
-        if (gameObject.activeSelf)
+        if (dmg > 0 && gameObject.activeSelf)
             StartCoroutine(RedFlash());
     }
 
