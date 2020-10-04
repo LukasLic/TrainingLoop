@@ -1,7 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+[Serializable]
+public struct Round
+{
+    public string Name;
+    public float Duration;
+    public GameObject ActiveObjects;
+}
 
 public class GameController : GenericSingleton<GameController>
 {
@@ -16,6 +25,12 @@ public class GameController : GenericSingleton<GameController>
     public SmoothCamera SmoothCamera;
 
     private Vector3 startingPosition;
+
+    public Round[] Rounds;
+
+    private bool Paused = false;
+    private int CurrentRound = 0;
+    private float RoundTimer = 0f;
 
     public void GameOver()
     {
@@ -37,8 +52,13 @@ public class GameController : GenericSingleton<GameController>
 
     private void Update()
     {
-        //if (Time.realtimeSinceStartup >= 12f && VictoryScreen.activeSelf == false)
-            //Victory();
+        if (Paused)
+            return;
+
+        RoundTimer += Time.deltaTime;
+
+        if (RoundTimer >= Rounds[CurrentRound].Duration)
+            EndRound();
     }
 
     public override void Awake()
@@ -58,6 +78,7 @@ public class GameController : GenericSingleton<GameController>
         Player.gameObject.SetActive(false);
         Player.enabled = false;
         SmoothCamera.enabled = false;
+        Paused = true;
     }
 
     public void StartNewGame()
@@ -86,6 +107,61 @@ public class GameController : GenericSingleton<GameController>
         // Reset camera.
         SmoothCamera.enabled = true;
         SmoothCamera.transform.position = new Vector3(0f, 0f, SmoothCamera.transform.position.z);
+
+        // Reset rounds.
+        CurrentRound = 0;
+        RoundTimer = 0f;
+        Paused = false;
+
+        // Start round
+        StartRound();
+    }
+
+    private void EndRound()
+    {
+        // Puase Player and Camera
+        Player.gameObject.SetActive(false);
+        Player.enabled = false;
+        SmoothCamera.enabled = false;
+
+        // Increase round if possible.
+        CurrentRound++;
+        if (CurrentRound >= Rounds.Length)
+            CurrentRound = Rounds.Length - 1;
+
+        // Clean world.
+        for (int i = 0; i < ObjectsRoots.Length; i++)
+            for (int j = 0; j < ObjectsRoots[i].childCount; j++)
+                Destroy(ObjectsRoots[i].GetChild(j).gameObject);
+
+        // Pause game
+        Paused = true;
+
+        Debug.LogError("OPEN SHOP");
+    }
+
+    private void StartRound()
+    {
+        // Reset camera.
+        SmoothCamera.enabled = true;
+        SmoothCamera.transform.position = new Vector3(0f, 0f, SmoothCamera.transform.position.z);
+
+        // Reset the loop.
+        Wheel.rotation = Quaternion.identity;
+
+        // Activate Player
+        Player.enabled = true;
+        Player.BodyRenderer.color = Color.white;
+        Player.transform.position = startingPosition;
+        Player.transform.rotation = Quaternion.identity;
+        Player.gameObject.SetActive(true);
+
+        // Unpause
+        Paused = false;
+
+        // TODO: Spawn objects
+
+        Debug.LogError(Rounds[CurrentRound].Name);
     }
 
     IEnumerator FadeIn(Material m)
@@ -115,5 +191,10 @@ public class GameController : GenericSingleton<GameController>
     public void ResetGameRequest()
     {
         StartNewGame();
+    }
+
+    public void FinishShopping()
+    {
+        StartRound();
     }
 }
