@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
             sls = value;
             SunflowerSeedsText.text = sls.ToString();
 
+            var perc = 0f;
+            if (sls > 0)
+                perc = Mathf.Min((float)sls / 50f, 2f);
+            cheeks.localScale = Vector3.one * perc;
+
             foreach (var item in shopButtons)
                 item.ButtonImage.interactable = sls >= item.price;
         }
@@ -33,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     public float damageKnockback;
     public float invulTime;
+
+    public Transform cheeks;
 
     [SerializeField]
     private int lives;
