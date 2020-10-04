@@ -29,10 +29,7 @@ public class PlayerController : MonoBehaviour
             lives = value;
 
             if (lives <= 0)
-            {
                 lives = 0;
-                Die();
-            }
             else if (lives > MaxLives)
             {
                 lives = MaxLives;
@@ -42,10 +39,19 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < LifeImages.Length; i++)
             {
                 if (i < lives)
-                    LifeImages[i].enabled = true;
+                {
+                    LifeImages[i]./*GetComponent<Animator>().*/SetBool("Visible", true);
+                    //LifeImages[i].enabled = true;
+                }
                 else
-                    LifeImages[i].enabled = false;
+                {
+                    LifeImages[i]./*GetComponent<Animator>().*/SetBool("Visible", false);
+                    //LifeImages[i].enabled = false;
+                }
             }
+
+            if (lives <= 0)
+                Die();
 
         }
     }
@@ -53,7 +59,7 @@ public class PlayerController : MonoBehaviour
     public int MaxLives = 3;
 
     public Text SunflowerSeedsText;
-    public Image[] LifeImages;
+    public Animator[] LifeImages;
 
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
