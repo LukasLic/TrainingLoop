@@ -9,6 +9,7 @@ public struct Round
 {
     public string Name;
     public float Duration;
+    public float SeedTime;
     public GameObject ActiveObjects;
 }
 
@@ -18,6 +19,9 @@ public class GameController : GenericSingleton<GameController>
     public PlayerController Player;
     public Transform Wheel;
     public Transform[] ObjectsRoots;
+    public Transform WorldRoot;
+
+    public Transform SeedSpawners;
 
     public GameObject VictoryScreen;
     public GameObject GameOverScreen;
@@ -31,6 +35,10 @@ public class GameController : GenericSingleton<GameController>
     private bool Paused = false;
     private int CurrentRound = 0;
     private float RoundTimer = 0f;
+    private int seedsSpawned;
+
+    [Header("Prefabs")]
+    public GameObject SeedPrefab;
 
     public void GameOver()
     {
@@ -57,9 +65,14 @@ public class GameController : GenericSingleton<GameController>
 
         RoundTimer += Time.deltaTime;
 
+        if (RoundTimer >= Rounds[CurrentRound].SeedTime * seedsSpawned)
+            SpawnSeed();
+
         if (RoundTimer >= Rounds[CurrentRound].Duration)
             EndRound();
     }
+
+
 
     public override void Awake()
     {
@@ -159,6 +172,9 @@ public class GameController : GenericSingleton<GameController>
         // Unpause
         Paused = false;
 
+        // Other
+        seedsSpawned = 0;
+
         // TODO: Spawn objects
 
         Debug.LogError(Rounds[CurrentRound].Name);
@@ -196,5 +212,20 @@ public class GameController : GenericSingleton<GameController>
     public void FinishShopping()
     {
         StartRound();
+    }
+
+    private void SpawnSeed()
+    {
+        var r = UnityEngine.Random.value;
+        var ch = (float)SeedSpawners.childCount * r;
+
+        var pos = SeedSpawners.GetChild((int)ch).position;
+
+        var rb = Instantiate(SeedPrefab, pos, Quaternion.identity, WorldRoot).GetComponent<Rigidbody2D>();
+
+        var r_v = UnityEngine.Random.value;
+        rb.velocity = (new Vector2(8f * r_v, 14f));
+
+        seedsSpawned++;
     }
 }
