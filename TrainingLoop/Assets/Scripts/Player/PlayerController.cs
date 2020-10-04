@@ -67,23 +67,23 @@ public class PlayerController : MonoBehaviour
     //    //}
     //}
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        switch (collision.gameObject.tag)
-        {
-            case "SunflowerSeed":
-                break;
-            case "Rocket":
-                TakeDamage(collision.gameObject, collision.GetContact(0).point);
-                Destroy(collision.gameObject);
-                break;
-            case "DamageSource":
-                TakeDamage(collision.gameObject, collision.GetContact(0).point);
-                break;
-            default:
-                break;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    switch (collision.gameObject.tag)
+    //    {
+    //        case "SunflowerSeed":
+    //            break;
+    //        case "Rocket":
+    //            TakeDamage(collision.gameObject, collision.GetContact(0).point);
+    //            Destroy(collision.gameObject);
+    //            break;
+    //        case "DamageSource":
+    //            TakeDamage(collision.gameObject, collision.GetContact(0).point);
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
 
     public void TakeDamage(GameObject damageSource, Vector3 point)
     {

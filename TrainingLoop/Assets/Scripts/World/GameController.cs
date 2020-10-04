@@ -37,8 +37,8 @@ public class GameController : GenericSingleton<GameController>
 
     private void Update()
     {
-        if (Time.realtimeSinceStartup >= 12f && VictoryScreen.activeSelf == false)
-            Victory();
+        //if (Time.realtimeSinceStartup >= 12f && VictoryScreen.activeSelf == false)
+            //Victory();
     }
 
     public override void Awake()
