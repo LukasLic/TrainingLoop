@@ -10,7 +10,7 @@ public struct Round
     public string Name;
     public float Duration;
     public float SeedTime;
-    public GameObject ActiveObjects;
+    public GameObject[] ActiveObjects;
 }
 
 public class GameController : GenericSingleton<GameController>
@@ -25,6 +25,7 @@ public class GameController : GenericSingleton<GameController>
 
     public GameObject VictoryScreen;
     public GameObject GameOverScreen;
+    public GameObject ShopScreen;
 
     public SmoothCamera SmoothCamera;
 
@@ -116,6 +117,7 @@ public class GameController : GenericSingleton<GameController>
         // Clean victory/gameover UI;
         GameOverScreen.SetActive(false);
         VictoryScreen.SetActive(false);
+        ShopScreen.SetActive(false);
 
         // Reset camera.
         SmoothCamera.enabled = true;
@@ -132,10 +134,18 @@ public class GameController : GenericSingleton<GameController>
 
     private void EndRound()
     {
-        // Puase Player and Camera
+        // Pause Player and Camera
         Player.gameObject.SetActive(false);
         Player.enabled = false;
         SmoothCamera.enabled = false;
+
+        // Deactivate objects
+        foreach (var obj in Rounds[CurrentRound].ActiveObjects)
+        {
+            if(obj != null)
+                obj.SetActive(false);
+        }
+            
 
         // Increase round if possible.
         CurrentRound++;
@@ -150,11 +160,13 @@ public class GameController : GenericSingleton<GameController>
         // Pause game
         Paused = true;
 
-        Debug.LogError("OPEN SHOP");
+        ShopScreen.SetActive(true);
     }
 
     private void StartRound()
     {
+        ShopScreen.SetActive(false);
+
         // Reset camera.
         SmoothCamera.enabled = true;
         SmoothCamera.transform.position = new Vector3(0f, 0f, SmoothCamera.transform.position.z);
@@ -171,13 +183,17 @@ public class GameController : GenericSingleton<GameController>
 
         // Unpause
         Paused = false;
+        RoundTimer = 0f;
 
         // Other
         seedsSpawned = 0;
 
-        // TODO: Spawn objects
-
-        Debug.LogError(Rounds[CurrentRound].Name);
+        // Activate objects
+        foreach (var obj in Rounds[CurrentRound].ActiveObjects)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
     }
 
     IEnumerator FadeIn(Material m)

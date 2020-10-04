@@ -1,7 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+[Serializable]
+public struct ButtonPrice
+{
+    public string Name;
+    public int price;
+    public Button ButtonImage;
+}
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,8 +22,14 @@ public class PlayerController : MonoBehaviour
         {
             sls = value;
             SunflowerSeedsText.text = sls.ToString();
+
+            foreach (var item in shopButtons)
+                item.ButtonImage.interactable = sls >= item.price;
         }
     }
+
+    [Header("Shop")]
+    public ButtonPrice[] shopButtons;
 
     public float damageKnockback;
     public float invulTime;
