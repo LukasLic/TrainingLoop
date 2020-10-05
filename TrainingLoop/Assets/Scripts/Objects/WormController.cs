@@ -18,6 +18,9 @@ public class WormController : MonoBehaviour
 
     private void Awake()
     {
+        // Random small offset
+        shootTimer = Random.value * 1.5f;
+
         shootTimer = 0f;
         if (Player == null)
             Player = GameObject.FindGameObjectWithTag("Player").transform;

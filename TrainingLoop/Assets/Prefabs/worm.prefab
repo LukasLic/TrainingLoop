@@ -160,8 +160,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.21827239, y: 0.000000059604645}
-  m_Size: {x: 0.5129441, y: 1.1808745}
+  m_Offset: {x: -0.31360024, y: -0.012548447}
+  m_Size: {x: 0.7035998, y: 1.7781913}
   m_Direction: 0
 --- !u!58 &6461820858220418167
 CircleCollider2D:
@@ -176,9 +176,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07131678, y: -0.38235015}
+  m_Offset: {x: 0.096403, y: -0.5755998}
   serializedVersion: 2
-  m_Radius: 0.20584685
+  m_Radius: 0.33383226
 --- !u!114 &6461820858220418161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,8 +196,8 @@ MonoBehaviour:
     type: 3}
   TempObjectsRoot: {fileID: 0}
   Player: {fileID: 0}
-  TimeToShoot: 6
-  RocketAppearTime: 5.5
+  TimeToShoot: 8
+  RocketAppearTime: 7.2
 --- !u!114 &797097336
 MonoBehaviour:
   m_ObjectHideFlags: 0
