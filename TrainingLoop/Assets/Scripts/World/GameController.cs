@@ -15,7 +15,20 @@ public struct Round
 
 public class GameController : GenericSingleton<GameController>
 {
-    private MusicController MusicController;
+    private MusicController mc = null;
+    private MusicController MusicController
+    {
+        set
+        {
+            mc = value;
+        }
+        get
+        {
+            if (mc == null)
+                mc = GetComponent<MusicController>();
+            return mc;
+        }
+    }
 
     public Vector3 WorldCenter = Vector3.zero;
     public PlayerController Player;

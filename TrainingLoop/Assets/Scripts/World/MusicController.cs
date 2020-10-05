@@ -18,6 +18,9 @@ public class MusicController : MonoBehaviour
 
     public void PlayTheme(AudioClip theme, bool loop)
     {
+        if (AudioSource == null)
+            AudioSource = GetComponent<AudioSource>();
+
         AudioSource.clip = theme;
         AudioSource.Play();
         AudioSource.loop = loop;
